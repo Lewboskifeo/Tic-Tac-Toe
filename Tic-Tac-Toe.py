@@ -1,7 +1,9 @@
 import sys
+theBoard = {'0': ' ', '1': ' ', '2': ' ', '3': ' ',
+            '4': ' ', '5': ' ', '6': ' ', '7': ' ', '8': ' '}
 
-theBoard = {'0': ' ', '1': ' ', '2': ' ', '3': ' ', '4': ' ', '5': ' ', '6': ' ', '7': ' ', '8': ' '}
-notes = {'tl': '0', 'tm': '1', 'tr': '2', 'ml': '3', 'mm': '4', 'mr': '5', 'bl': '6', 'bm': '7', 'br': '8'}
+notes = {'tl': '0', 'tm': '1', 'tr': '2', 'ml': '3',
+         'mm': '4', 'mr': '5', 'bl': '6', 'bm': '7', 'br': '8'}
 
 def babyboard():
     print(theBoard["0"], "|", theBoard["1"], "|", theBoard["2"])
@@ -21,16 +23,20 @@ def win():
     L = "X"
     for n in range(2):
         for i in range(3):
-            if theBoard.get(str(P3), "") == L and theBoard.get(str(P3 + 1), "") == L and theBoard.get(str(P3 + 2), "") == L:
+            if theBoard.get(str(P3), "") == L and theBoard.get(str(P3 + 1), "") == L and \
+            theBoard.get(str(P3 + 2), "") == L:
                 W += 1
                 break
-            elif theBoard.get(str(0 + P1), "") == L and theBoard.get(str(3 + P1), "") == L and theBoard.get(str(6 + P1), "") == L:
+            elif theBoard.get(str(0 + P1), "") == L and theBoard.get(str(3 + P1), "") == L and \
+            theBoard.get(str(6 + P1), "") == L:
                 W += 1
                 break
-            elif theBoard.get(str(0), "") == L and theBoard.get(str(4), "") == L and theBoard.get(str(8), "") == L:
+            elif theBoard.get(str(0), "") == L and theBoard.get(str(4), "") == L and \
+            theBoard.get(str(8), "") == L:
                 W += 1
                 break
-            elif theBoard.get(str(6), "") == L and theBoard.get(str(4), "") == L and theBoard.get(str(2), "") == L:
+            elif theBoard.get(str(6), "") == L and theBoard.get(str(4), "") == L and \
+            theBoard.get(str(2), "") == L:
                 W += 1
                 break
             P1 += 1
@@ -41,7 +47,7 @@ def win():
     return W
 
 def loop():
-    global TT, T, V, W, WW, FBOARD
+    global TT, T, V, W, FBOARD
     pick()
     FBOARD = notes.get(T, 0)
     for V in range(1):
